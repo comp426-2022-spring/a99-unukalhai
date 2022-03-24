@@ -9,3 +9,15 @@
 ## Technology Uses
 
 - Express, Node, (Angular or React), MongoDB
+
+## Page
+
+- Login/Register Page
+- Main Page
+  - List resources
+  - can add resource and then updated on the page
+  - filter ability
+  - favorite a resource
+  - Logout Button
+- User Profile
+  - update information, delete profile
