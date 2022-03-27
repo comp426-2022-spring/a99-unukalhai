@@ -5,8 +5,10 @@ const Schema = mongoose.Schema;
 const resourceSchema = new Schema({
   username: { type: String, required: true },
   description: { type: String, required: true },
-  duration: { type: Number, required: true },
-  date: { type: Date, required: true },
+  website: { type: String },
+  phoneNumber: { type: String },
+  location: { type: String },
+  keywords: { type: String}
 }, {
   timestamps: true,
 });
