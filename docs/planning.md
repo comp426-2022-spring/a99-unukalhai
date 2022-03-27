@@ -21,3 +21,21 @@
   - Logout Button
 - User Profile
   - update information, delete profile
+
+
+## Databases
+
+- User Table 
+  - username
+  - password
+  - email
+  - location
+- Interactions Table
+  - login history
+  - access logs
+- Resourses Table
+  - website
+  - phone number
+  - location
+  - keywords / description
+  - category
