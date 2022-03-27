@@ -5,23 +5,19 @@ let Resources = require('../models/resources.model');
 
 
 // retrieve resource
+
 router.route('/').get((req, res) => {
-    Resourse.find()
+    Resourses.find()
     .then(resources => res.json(resources))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-    // by name
 router.route('/:id').get((req, res) => {
-    Resourse.findById(req.params.id)
+    Resources.findById(req.params.id)
     .then(resources => res.json(resources))
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-    // by category
-
-
-    // by ??
 
 
 // add resource -- update with needed params 
@@ -52,9 +48,31 @@ router.route('/add').post((req, res) => {
 
 // update resource
 
+router.route('/update/:id').post((req, res) => {
+    Resources.findById(req.params.id)
+    .then(resources => {
+        resources.name = req.body.name;
+        resources.description = req.body.description;
+        resources.website = req.body.website;
+        resources.phoneNumber = req.body.phoneNumber;
+        resources.location = req.body.location;
+        resources.keywords = req.body.keywords;
+
+        resources.save()
+        .then(() => res.json('Resources has been updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    })
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 
 // delete resource
 
+router.route('/:id').delete((req, res) => {
+    Resources.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Resources has been deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
 
 
 module.exports = router;
