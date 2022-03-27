@@ -29,7 +29,7 @@
   - username
   - password
   - email
-  - location
+  - favorites
 - Interactions Table
   - login history
   - access logs
@@ -37,5 +37,5 @@
   - website
   - phone number
   - location
-  - keywords / description
-  - category
+  - description
+  - category / keywords
