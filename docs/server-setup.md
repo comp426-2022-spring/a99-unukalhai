@@ -10,14 +10,20 @@
 ## Part 01: Connecting to MongoDB
 
 - Create an `.env` file in `backend` directory
+
+    <img src="./images/file-structure.png"  height="200">
+
 - Create variable `ATLAS_URI`
 - Go to MongoDB project page, and hit **Connect** -> **Connect your application** -> copy & paste connection string and set it to `ATLAS_URI` (would look something like `ATLAS_URI`=mongodb+srv:....)
-- Make sure to replace '<password>' substring with our user password (will text in the groupMe)
+  <img src="./images/Connect.png"  height="200"> <img src="./images/connect-cluster.png"  height="200">
+- Make sure to replace 'password' (including < >) substring with our user password (will text in the groupMe)
 
 ## Part 02: Adding Your IP Address
 
 - Go to `Network Access` tab on the left side
 - Hit `Add IP Address` green button
+
+    <img src="./images/network-access.png"  height="200">
 
 ## Part 03: Running Server
 
