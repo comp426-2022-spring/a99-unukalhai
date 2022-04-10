@@ -7,7 +7,7 @@ let Resources = require('../models/resources.model');
 // retrieve resource
 
 router.route('/').get((req, res) => {
-    Resourses.find()
+    Resources.find()
     .then(resources => res.json(resources))
     .catch(err => res.status(400).json('Error: ' + err));
 });
