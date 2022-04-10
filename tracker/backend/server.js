@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const passport = require("passport");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -20,6 +21,21 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
+// intialize passport
+app.use(passport.initialize());
+app.use(passport.session());
+//current User
+app.use(function (req, res, next) {
+  res.locals.currentUser = req.user;
+  next();
+});
+//MIDDLEWARE
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/login");
+}
 // ROUTES GO HERE
 
 // Starts listening
