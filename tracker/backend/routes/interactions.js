@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const Interaction = require('../models/interactions.model');
 let Interactions = require('../models/interactions.model');
 
 // needed routes: retrieve, add
@@ -16,12 +17,12 @@ router.route('/add').post((req, res) => {
     const description = req.body.description;
     const date = Date.parse(req.body.date);
 
-    const newExercise = new Exercise({
+    const newInteraction = new Interaction({
     description,
     date
     });
 
-    newExercise.save()
+    newInteraction.save()
     .then(() => res.json('Interaction logged'))
     .catch(err => res.status(400).json('Error: ' + err));
 });
