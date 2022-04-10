@@ -49,7 +49,7 @@ function App() {
         gap ={{rows:10, columns:10}}
         positions = {positions}
         items = {widgets}
-        onRepositioning = {handleRepositioning}
+        onReposition = {handleRepositioning}
       />
     </div>
   );
