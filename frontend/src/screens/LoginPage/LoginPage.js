@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MainScreen from "../../components/MainScreen";
 import ErrorMessage from "../../components/ErrorMessage";
 import "./LoginPage.css";
 
-const LoginPage = () => {
+const LoginPage = ({ history }) => {
   // Stores username and password
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  let navigate = useNavigate();
   // errors
   const [error, setError] = useState(false);
 
+  //   useEffect(() => {
+  //     const userInfo = localStorage.getItem("userinfo");
+  //     if (userInfo) {
+  //       navigate("/dashboard");
+  //     }
+  //   }, []);
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -34,8 +41,9 @@ const LoginPage = () => {
 
       console.log(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
+      // Successful, so log in and has access to dashboard
+      navigate("/dashboard");
     } catch (error) {
-      console.log(error);
       setError(error.response.data.message);
     }
   };

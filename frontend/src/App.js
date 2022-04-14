@@ -7,6 +7,7 @@ import LandingPage from "./screens/LandingPage/LandingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./screens/LoginPage/LoginPage";
 import SignUpPage from "./screens/SignUpPage/SignUpPage";
+import Dashboard from "./screens/Dashboard/Dashboard";
 
 //These are the widget objects that are displayed in the dashboard
 const FirstWidget = () => <div> First Widget</div>;
@@ -65,6 +66,7 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/dashboard" element={<Dashboard />} />
     </Routes>
   );
 }
