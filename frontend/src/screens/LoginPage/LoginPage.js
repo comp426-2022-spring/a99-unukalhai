@@ -80,7 +80,7 @@ const LoginPage = ({ history }) => {
         </Form>
         <Row className="py-3">
           <Col>
-            New Customer ? <Link to="/register">Register Here</Link>
+            New Customer ? <Link to="/signup">Register Here</Link>
           </Col>
         </Row>
       </div>

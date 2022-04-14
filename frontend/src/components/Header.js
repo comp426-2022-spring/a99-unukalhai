@@ -28,9 +28,9 @@ const Header = () => {
     <>
       <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">COVID-19 Resources</Navbar.Brand>
+          <Navbar.Brand href="/dashboard">COVID-19 Resources</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">User Profile</Nav.Link>
+            <Nav.Link href="/profile">User Profile</Nav.Link>
             <Nav.Link onClick={LogoutUser}>Logout</Nav.Link>
           </Nav>
         </Container>

@@ -9,6 +9,7 @@ import "./SignUpPage.css";
 
 function SignUpPage() {
   // USER PROFILE STATES
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -34,8 +35,9 @@ function SignUpPage() {
         };
 
         const { data } = await axios.post(
-          "/signup",
+          "http://localhost:5000/signup",
           {
+            name,
             username,
             email,
             password,
@@ -61,21 +63,31 @@ function SignUpPage() {
 
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="name">
-            <Form.Label className="pt-2">Username</Form.Label>
+            <Form.Label className="pt-2">First and Last Name</Form.Label>
             <Form.Control
               type="name"
+              value={name}
+              placeholder="Enter First and Last Name"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Form.Group>
+
+          <Form.Group controlId="username">
+            <Form.Label className="pt-2">Username</Form.Label>
+            <Form.Control
+              type="username"
               value={username}
-              placeholder="Enter username"
+              placeholder="Enter Username"
               onChange={(e) => setUsername(e.target.value)}
             />
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
-            <Form.Label className="pt-2">Email address</Form.Label>
+            <Form.Label className="pt-2">Email Address</Form.Label>
             <Form.Control
               type="email"
               value={email}
-              placeholder="Enter email"
+              placeholder="Enter Email"
               onChange={(e) => setEmail(e.target.value)}
             />
           </Form.Group>

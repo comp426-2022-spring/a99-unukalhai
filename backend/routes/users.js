@@ -1,6 +1,8 @@
 const router = require("express").Router();
 let User = require("../models/user.model");
 const { auth } = require("../auth/auth");
+const { update } = require("../models/user.model");
+const { route } = require("express/lib/application");
 
 // needed routes: retrieve, add, update, delete
 
@@ -73,9 +75,10 @@ router.post("/login", function (req, res) {
 
 // Retrieves user information
 router.get("/profile", auth, function (req, res) {
-  res.json({
+  res.status(200).json({
     isAuth: true,
     id: req.user._id,
+    name: req.user.name,
     email: req.user.email,
     username: req.user.username,
   });
@@ -86,8 +89,9 @@ router.post("/profile/update", auth, async (req, res) => {
   const user = await User.findById(req.user._id);
 
   if (user) {
-    (user.username = req.body.username || user.username),
-      (user.email = req.body.email || user.email);
+    user.username = req.body.username || user.username;
+    user.email = req.body.email || user.email;
+    user.name = req.body.name || user.name;
 
     if (req.body.password) {
       user.password = req.body.password;
@@ -96,6 +100,7 @@ router.post("/profile/update", auth, async (req, res) => {
     const updatedUser = await user.save();
     res.status(200).json({
       _id: updatedUser._id,
+      name: updatedUser.name,
       username: updatedUser.username,
       email: updatedUser.email,
       password: updatedUser.password,
@@ -105,6 +110,17 @@ router.post("/profile/update", auth, async (req, res) => {
   }
 });
 
+// DELETE USER ACCOUNT
+// router.delete("/profile/delete", auth, async (req, res) => {
+//   try {
+//     await User.findByIdAndDelete(req._id);
+//     res.status(200).json({ message: "User Deleted Successfully!" });
+//   } catch (error) {
+//     res
+//       .status(500)
+//       .json({ err: error.message || "Error while deleting using" });
+//   }
+// });
 //logout user
 router.get("/logout", auth, function (req, res) {
   req.user.deleteToken(req.token, (err, user) => {

@@ -18,7 +18,7 @@ function LandingPage() {
           <div className="intro-text">
             <div>
               <h1 className="title">COVID-19 Resource Dashboard</h1>
-              <p classname="subtitle">
+              <p className="subtitle">
                 A central location for all mental health related resources.
               </p>
             </div>
