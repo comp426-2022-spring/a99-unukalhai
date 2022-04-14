@@ -45,8 +45,8 @@ function SignUpPage() {
         );
         console.log(data);
         localStorage.setItem("userInfo", JSON.stringify(data));
-        // Successful, so has access to dashboard
-        // navigate("/dashboard");
+        // Successful, so goes back to log in form has access to dashboard
+        navigate("/");
       } catch (error) {
         setError(error.response.data.message);
       }
