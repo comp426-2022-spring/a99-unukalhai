@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -14,12 +14,12 @@ const LoginPage = ({ history }) => {
   // errors
   const [error, setError] = useState(false);
 
-  //   useEffect(() => {
-  //     const userInfo = localStorage.getItem("userinfo");
-  //     if (userInfo) {
-  //       navigate("/dashboard");
-  //     }
-  //   }, []);
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userinfo");
+    if (userInfo) {
+      navigate("/dashboard");
+    }
+  }, []);
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -31,7 +31,7 @@ const LoginPage = ({ history }) => {
 
       // Calling the API
       const { data } = await axios.post(
-        "/login",
+        "http://localhost:5000/login",
         {
           username,
           password,

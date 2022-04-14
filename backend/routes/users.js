@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
   res.status(200).send(`Welcome to login , sign-up api`);
 });
 
-router.post("/register", function (req, res) {
+router.post("/signup", function (req, res) {
   // taking a user
   const newuser = new User(req.body);
 
@@ -45,16 +45,16 @@ router.post("/login", function (req, res) {
     else {
       User.findOne({ username: req.body.username }, function (err, user) {
         if (!user)
-          return res.json({
+          return res.status(400).json({
             isAuth: false,
-            message: " Auth failed ,username not found",
+            message: "Username not found",
           });
 
         user.comparepassword(req.body.password, (err, isMatch) => {
           if (!isMatch)
-            return res.json({
+            return res.status(400).json({
               isAuth: false,
-              message: "password doesn't match",
+              message: "Username or/and Password Is Incorrect",
             });
 
           user.generateToken((err, user) => {
