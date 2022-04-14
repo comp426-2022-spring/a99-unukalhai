@@ -4,8 +4,9 @@ import { useState } from "react";
 import "./App.css";
 import "./bootstrap.min.css";
 import LandingPage from "./screens/LandingPage/LandingPage";
-import { Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./screens/LoginPage/LoginPage";
+import SignUpPage from "./screens/SignUpPage/SignUpPage";
 
 //These are the widget objects that are displayed in the dashboard
 const FirstWidget = () => <div> First Widget</div>;
@@ -60,11 +61,11 @@ function App() {
   // return <div className="App"></div>;
 
   return (
-    <LandingPage />
-    // <BrowserRouter>
-    //   <Route path="/" component={LandingPage} exact />
-    //   <Route path="/login" component={LoginPage} />
-    // </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignUpPage />} />
+    </Routes>
   );
 }
 
