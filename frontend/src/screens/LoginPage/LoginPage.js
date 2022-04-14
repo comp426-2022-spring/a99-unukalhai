@@ -3,6 +3,7 @@ import axios from "axios";
 import { Form, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import MainScreen from "../../components/MainScreen";
+import ErrorMessage from "../../components/ErrorMessage";
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -11,7 +12,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   // errors
   const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
@@ -21,7 +22,6 @@ const LoginPage = () => {
         },
       };
 
-      setLoading(true);
       // Calling the API
       const { data } = await axios.post(
         "/login",
@@ -34,16 +34,16 @@ const LoginPage = () => {
 
       console.log(data);
       localStorage.setItem("userInfo", JSON.stringify(data));
-      setLoading(false);
     } catch (error) {
+      console.log(error);
       setError(error.response.data.message);
     }
   };
   return (
     <MainScreen title="LOGIN">
       <div className="loginContainer">
-        {/* {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
-        {loading && <Loading />} */}
+        {/* Will display error message */}
+        {error && <ErrorMessage variant="danger">{error}</ErrorMessage>}
         <Form onSubmit={submitHandler}>
           <Form.Group controlId="formBasicusername">
             <Form.Label>Username</Form.Label>
