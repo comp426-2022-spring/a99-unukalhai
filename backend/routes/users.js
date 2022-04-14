@@ -81,6 +81,30 @@ router.get("/profile", auth, function (req, res) {
   });
 });
 
+// Update User Profile Information
+router.post("/profile/update", auth, async (req, res) => {
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    (user.username = req.body.username || user.username),
+      (user.email = req.body.email || user.email);
+
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+
+    const updatedUser = await user.save();
+    res.status(200).json({
+      _id: updatedUser._id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      password: updatedUser.password,
+    });
+  } else {
+    res.status(404).json(err);
+  }
+});
+
 //logout user
 router.get("/logout", auth, function (req, res) {
   req.user.deleteToken(req.token, (err, user) => {
