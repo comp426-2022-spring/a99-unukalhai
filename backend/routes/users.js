@@ -81,7 +81,7 @@ router.get("/profile", auth, function (req, res) {
   });
 });
 
-// Update User Profile Information
+// Update User Profile Information - Able to Update username password or email
 router.post("/profile/update", auth, async (req, res) => {
   const user = await User.findById(req.user._id);
 

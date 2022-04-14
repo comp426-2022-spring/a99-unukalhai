@@ -47,3 +47,5 @@
 
 - npm install express body-parser cookie-parser bcrypt mongoose jsonwebtoken nodemon
 - referenced https://medium.com/@sarthakmittal1461/to-build-login-sign-up-and-logout-restful-apis-with-node-js-using-jwt-authentication-f3d7287acca2
+- npm install react-bootstrap (frontend)
+- npm install axios react-router-dom (frontend)
