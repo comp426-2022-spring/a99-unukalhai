@@ -67,6 +67,7 @@ router.post("/login", function (req, res) {
               username: user.username,
               email: user.email,
               name: user.name,
+              password: user.password,
             });
           });
         });
@@ -87,8 +88,11 @@ router.get("/profile", auth, function (req, res) {
 });
 
 // Update User Profile Information - Able to Update username password or email
-router.post("/profile/update", auth, async (req, res) => {
-  const user = await User.findById(req.user._id);
+router.post("/update-userInfo", async (req, res) => {
+  // Find user in database
+  const user = await User.findOne({ username: req.body.username });
+  console.log("User", user);
+  console.log(req.body);
 
   if (user) {
     user.username = req.body.username || user.username;
@@ -99,6 +103,13 @@ router.post("/profile/update", auth, async (req, res) => {
       user.password = req.body.password;
     }
 
+    // user.comparepassword(req.body.password, (err, isMatch) => {
+    //   if (!isMatch)
+    //     return res.status(400).json({
+    //       isAuth: false,
+    //       message: "Username or/and Password Is Incorrect",
+    //     });
+
     const updatedUser = await user.save();
     res.status(200).json({
       _id: updatedUser._id,
@@ -108,7 +119,7 @@ router.post("/profile/update", auth, async (req, res) => {
       password: updatedUser.password,
     });
   } else {
-    res.status(404).json(err);
+    res.status(404).json({ message: "User not found" });
   }
 });
 

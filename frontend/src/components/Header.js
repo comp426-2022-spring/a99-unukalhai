@@ -19,6 +19,7 @@ const Header = () => {
 
       console.log(data);
       // Successful, so log in and has access to dashboard
+      localStorage.removeItem("userInfo");
       navigate("/");
     } catch (error) {
       console.log(error.response.data.message);

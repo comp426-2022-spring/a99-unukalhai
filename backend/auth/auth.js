@@ -5,7 +5,7 @@ let auth = (req, res, next) => {
   let token = req.cookies.auth;
   // checks for login status
   User.findByToken(token, (err, user) => {
-    console.log(user);
+    console.log("AUTH", user);
     if (err) throw err;
     if (!user)
       return res.json({
