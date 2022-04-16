@@ -77,23 +77,20 @@ router.post("/login", function (req, res) {
 });
 
 // Retrieves user information
-router.get("/profile", auth, function (req, res) {
-  res.status(200).json({
-    isAuth: true,
-    id: req.user._id,
-    name: req.user.name,
-    email: req.user.email,
-    username: req.user.username,
-  });
-});
+// router.get("/profile", auth, function (req, res) {
+//   res.status(200).json({
+//     isAuth: true,
+//     id: req.user._id,
+//     name: req.user.name,
+//     email: req.user.email,
+//     username: req.user.username,
+//   });
+// });
 
 // Update User Profile Information - Able to Update username password or email
 router.post("/update-userInfo", async (req, res) => {
   // Find user in database
-  console.log("Request Body", req.body);
   const user = await User.findOne({ _id: req.body._id });
-  console.log("User", user);
-  console.log(req.body);
 
   if (user) {
     user.username = req.body.username || user.username;
@@ -103,13 +100,6 @@ router.post("/update-userInfo", async (req, res) => {
     if (req.body.password) {
       user.password = req.body.password;
     }
-
-    // user.comparepassword(req.body.password, (err, isMatch) => {
-    //   if (!isMatch)
-    //     return res.status(400).json({
-    //       isAuth: false,
-    //       message: "Username or/and Password Is Incorrect",
-    //     });
 
     const updatedUser = await user.save();
     res.status(200).json({
@@ -124,17 +114,19 @@ router.post("/update-userInfo", async (req, res) => {
   }
 });
 
-// DELETE USER ACCOUNT
-// router.delete("/profile/delete", auth, async (req, res) => {
-//   try {
-//     await User.findByIdAndDelete(req._id);
-//     res.status(200).json({ message: "User Deleted Successfully!" });
-//   } catch (error) {
-//     res
-//       .status(500)
-//       .json({ err: error.message || "Error while deleting using" });
-//   }
-// });
+//DELETE USER ACCOUNT
+router.post("/delete-user", async (req, res) => {
+  try {
+    console.log("Body", req.body);
+    await User.findOneAndDelete({ _id: req.body._id });
+    res.status(200).json({ message: "User Deleted Successfully!" });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ err: error.message || "Error while deleting using" });
+  }
+});
+
 //logout user
 router.get("/logout", auth, function (req, res) {
   req.user.deleteToken(req.token, (err, user) => {
