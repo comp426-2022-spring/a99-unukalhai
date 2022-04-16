@@ -1,9 +1,20 @@
-.main{
-    min-height: 93vh;
+.home-main{
+    height: 100vh;
     display: flex;
     align-items: center;
     background-position: center;
     background-size: cover;
+    background-color: aliceblue;
+}
+
+.landing-page-container{
+    height: 50vh;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 .title{
@@ -28,6 +39,6 @@
 }
 
 .landingbutton{
-    width: 150px;
-    height: 55px;
+    width: 100px;
+    height: 35px;
 }

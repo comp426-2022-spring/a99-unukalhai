@@ -30,7 +30,7 @@ const Header = () => {
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/dashboard">COVID-19 Resources</Navbar.Brand>
-          <Nav className="me-auto">
+          <Nav className="ms-auto">
             <Nav.Link href="/profile">User Profile</Nav.Link>
             <Nav.Link onClick={LogoutUser}>Logout</Nav.Link>
           </Nav>

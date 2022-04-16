@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import axios from "axios";
-import { Button, Nav, Modal } from "react-bootstrap";
+import { Button, Nav, Modal, Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
@@ -63,29 +63,31 @@ const Profile = () => {
     <>
       <Header />
 
-      <div>User Profile</div>
-      <p>{name}</p>
-      <p>{username}</p>
-      <p>{email}</p>
-      <Nav.Link href="/update-profile">
-        <Button>Update</Button>
-      </Nav.Link>
-      <Button onClick={handleShow}>Delete Account</Button>
+      <Container>
+        <div>User Profile</div>
+        <p>{name}</p>
+        <p>{username}</p>
+        <p>{email}</p>
+        <Nav.Link href="/update-profile">
+          <Button>Update</Button>
+        </Nav.Link>
+        <Button onClick={handleShow}>Delete Account</Button>
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Delete Acount</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Are you sure you want to delete your account?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="danger" onClick={deleteUser}>
-            Delete Account
-          </Button>
-        </Modal.Footer>
-      </Modal>
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Delete Acount</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Are you sure you want to delete your account?</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="danger" onClick={deleteUser}>
+              Delete Account
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </Container>
     </>
   );
 };
