@@ -19,7 +19,7 @@ app.use(cookieParser());
 // Establishes connection to database
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  db.DATABASE,
+  process.env.ATLAS_URI,
   { useNewUrlParser: true, useUnifiedTopology: true },
   function (err) {
     if (err) console.log(err);
