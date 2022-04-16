@@ -65,6 +65,8 @@ router.post("/login", function (req, res) {
               isAuth: true,
               id: user._id,
               username: user.username,
+              email: user.email,
+              name: user.name,
             });
           });
         });
