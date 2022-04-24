@@ -35,7 +35,7 @@ function SignUpPage() {
         };
 
         const { data } = await axios.post(
-          "http://localhost:5000/signup",
+          "http://localhost:5000/app/signup",
           {
             name,
             username,
