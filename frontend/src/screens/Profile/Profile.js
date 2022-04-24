@@ -41,7 +41,7 @@ const Profile = () => {
 
       // Calling the API
       const { data } = await axios.post(
-        "http://localhost:5000/delete-user",
+        "http://localhost:5000/app/delete-user",
         { _id: ID },
 
         config

@@ -35,7 +35,7 @@ const UpdateProfile = () => {
 
       // Calling the API
       const { data } = await axios.post(
-        "http://localhost:5000/update-userInfo",
+        "http://localhost:5000/app/update-userInfo",
         {
           name,
           username,

@@ -15,7 +15,10 @@ const Header = () => {
       };
 
       // Calling the API
-      const { data } = await axios.get("http://localhost:5000/logout", config);
+      const { data } = await axios.get(
+        "http://localhost:5000/app/logout",
+        config
+      );
 
       console.log(data);
       // Successful, so log in and has access to dashboard
