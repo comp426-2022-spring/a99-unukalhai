@@ -1,12 +1,27 @@
 import React from "react";
-import Header from "../../components/Header";
-import { Container } from "react-bootstrap";
+import data from "data";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Card from "./components/Card";
+
+const cards = data.map(item => {
+  return (
+    <Card 
+      key={item.id}
+      {...item}
+    />
+  )
+})
+
 
 const Dashboard = () => {
   return (
-    <div>
-      <Header />
-      <Container>Dashboard</Container>
+    <div className="App">
+      <Navbar />
+      <main>
+        {cards}
+      </main>
+      <Footer />
     </div>
   );
 };
