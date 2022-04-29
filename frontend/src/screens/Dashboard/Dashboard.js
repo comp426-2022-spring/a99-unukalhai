@@ -6,6 +6,7 @@ const Dashboard = () => {
   return (
     <div>
       <Header />
+      
       <Container>Dashboard</Container>
     </div>
   );

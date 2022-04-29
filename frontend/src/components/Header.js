@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const Header = () => {
   let navigate = useNavigate();
@@ -32,7 +32,7 @@ const Header = () => {
           <Navbar.Brand href="/dashboard">COVID-19 Resources</Navbar.Brand>
           <Nav className="ms-auto">
             <Nav.Link href="/profile">User Profile</Nav.Link>
-            <Nav.Link onClick={LogoutUser}>Logout</Nav.Link>
+            <Nav.Link href = "/">Logout</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

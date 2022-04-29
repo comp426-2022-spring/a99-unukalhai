@@ -75,10 +75,11 @@ const LoginPage = ({ history }) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-
+          <Link to ="/dashboard">
             <Button variant="primary" type="submit" className="mt-3">
               Log In
             </Button>
+          </Link>
           </Form>
           <Row className="py-3">
             <Col>
