@@ -1,5 +1,5 @@
 import React from "react";
-import data from "./data/data";
+import data from "data";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Card from "./components/Card";
