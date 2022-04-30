@@ -14,6 +14,14 @@ const cards = data.map(item => {
   )
 })
 
+const addCard = () => {
+  return (
+    <div className="card">
+
+    </div>
+  )
+}
+
 
 const Dashboard = () => {
   return (

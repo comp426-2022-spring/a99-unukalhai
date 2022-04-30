@@ -2,11 +2,11 @@ import React from "react";
 import "./Card.css";
 
 export default function Card(props) {
-  let dateText;
+  let linkText;
   if (props.natural === true) {
-    dateText = "NATURAL";
+    linkText = "NATURAL";
   } else {
-    dateText = `${props.website}`;
+    linkText = `${props.website}`;
   }
 
   return (
@@ -30,7 +30,11 @@ export default function Card(props) {
           </a>
         </div>
         <p className="card--title">{props.title}</p>
-        <div className="card--date">{dateText}</div>
+        <div className="card--link">
+          <a href={linkText} className="card--link--text">
+          {linkText}
+          </a>
+        </div>
         <p className="card--description">{props.description}</p>
       </div>
     </div>

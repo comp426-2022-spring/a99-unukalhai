@@ -45,14 +45,14 @@
     white-space: nowrap;
   }
   
-  .card--date {
+  .card--link {
     text-align: left;
     margin: 0.4rem 0;
     font-weight: 600;
   }
   
   .card--title {
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 600;
     margin: 0;
     padding: 0;

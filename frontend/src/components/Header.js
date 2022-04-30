@@ -32,11 +32,11 @@ const Header = () => {
         <Container>
           <Navbar.Brand href="/dashboard">
             <img
-              src= {"./UNCLogo.png"}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt="UNC Logo"
+              src = "https://identity2.sites.unc.edu/wp-content/uploads/sites/885/2019/01/centered_logo.png"
+              width="60"
+              height="50"
+              className = "logo"
+              alt="React Bootstrap logo"
             />
             Mental Health Resources
             </Navbar.Brand>

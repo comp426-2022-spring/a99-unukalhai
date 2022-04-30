@@ -9,10 +9,8 @@
   }
   
   .logo {
-    filter: invert(74%) sepia(93%) saturate(4951%) hue-rotate(326deg)
-      brightness(100%) contrast(94%);
     height: 70%;
-    margin-right: 1rem;
+    margin-right: 0rem;
   
   }
   
