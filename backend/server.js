@@ -3,8 +3,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const bodyparser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const db = require("../config/config").get(process.env.NODE_ENV);
-const router = require("../routes/users");
+const db = require("./config/config").get(process.env.NODE_ENV);
+const router = require("./routes/users");
 
 const app = express();
 const PORT = process.env.PORT || 5000;

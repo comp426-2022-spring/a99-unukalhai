@@ -17,22 +17,25 @@ const UpdateProfile = () => {
   const userInfo = () => {
     const jsonData = localStorage.getItem("userInfo");
     var data = JSON.parse(jsonData);
+    console.log(data);
     setName(data["name"]);
+    console.log(name);
     setUsername(data["username"]);
     setEmail(data["email"]);
     setPassword(data["password"]);
-    setID(data["id"]);
+    setID(data["_id"]);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      console.log("enters");
       const config = {
         headers: {
           "Content-type": "application/json",
         },
       };
-
+      console.log("enters");
       // Calling the API
       const { data } = await axios.post(
         "http://localhost:5000/update-userInfo",
