@@ -28,7 +28,7 @@ mongoose.connect(
 );
 
 // ROUTES
-app.use(router);
+app.use("/app", router);
 
 // Starts listening
 app.listen(PORT, () => {

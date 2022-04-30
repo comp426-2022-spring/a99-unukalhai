@@ -31,7 +31,7 @@ const LoginPage = ({ history }) => {
 
       // Calling the API
       const { data } = await axios.post(
-        "http://localhost:5000/login",
+        "http://localhost:5000/app/login",
         {
           username,
           password,
