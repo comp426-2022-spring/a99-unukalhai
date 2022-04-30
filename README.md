@@ -1,8 +1,24 @@
 # a99 Final Project
 
+# Group Members
+
+Daniel, Madyson, Maytee, Meghan, and Sonika
+
 # Mental Health Database
 
 A database that provides information about mental health resources in the general Chapel Hill area. All you need to do to have access is to register for an account to access the dashboard. Each resource provides the website, a phone number, email, and more.
+
+### The Welcome Page
+
+<img src="./docs/images/welcome-page.png"  height="200">
+
+### The Login Page
+
+<img src="./docs/images/login.png"  height="200">
+
+### The Dashboard of Resources
+
+<img src="./docs/images/dashboard.png"  height="200">
 
 ## Installing / Getting started
 
