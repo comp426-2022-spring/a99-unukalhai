@@ -3,13 +3,14 @@ export default [
     {
       id: 1,
       title: "Parthenon",
-      location: "GREECE",
+      location: "Chapel Hill, NC",
       googleMapsUrl: "https://goo.gl/maps/a2UaeW8LQQ6RvxD3A",
       natural: false,
       dateBuilt: "438 BC",
+      website:"https://www.911.gov",
       description:
-        "The Parthenon is a former temple on the Athenian Acropolis, regarded as an enduring symbol of Ancient Greece, democracy and Western civilization, and one of the world's greatest cultural monuments.",
-      imageUrl: "https://source.unsplash.com/ilQmlVIMN4c",
+        "For any situation requiring immediate assistance from the police fire department or ambulance dial 911 for emergency response",
+      imageUrl: "https://campushealth.unc.edu/wp-content/uploads/2021/09/UNC-EMS-882x1024.png",
     },
     {
       id: 2,

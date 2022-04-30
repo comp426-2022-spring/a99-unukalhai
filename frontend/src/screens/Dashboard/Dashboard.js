@@ -1,8 +1,9 @@
 import React from "react";
-import data from "data";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import Card from "./components/Card";
+import data from "../../data/data";
+import Navbar from "../../components/Navbar/Navbar";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer/Footer";
+import Card from "../../components/Card/Card";
 
 const cards = data.map(item => {
   return (
@@ -17,7 +18,7 @@ const cards = data.map(item => {
 const Dashboard = () => {
   return (
     <div className="App">
-      <Navbar />
+      <Header />
       <main>
         {cards}
       </main>

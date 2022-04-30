@@ -1,4 +1,5 @@
 import React from "react";
+import "./Header.css"
 import { Navbar, Nav, Container, Button } from "react-bootstrap";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
@@ -29,7 +30,16 @@ const Header = () => {
     <>
       <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand href="/dashboard">COVID-19 Resources</Navbar.Brand>
+          <Navbar.Brand href="/dashboard">
+            <img
+              src= {"./UNCLogo.png"}
+              width="30"
+              height="30"
+              className="d-inline-block align-top"
+              alt="UNC Logo"
+            />
+            Mental Health Resources
+            </Navbar.Brand>
           <Nav className="ms-auto">
             <Nav.Link href="/profile">User Profile</Nav.Link>
             <Nav.Link href = "/">Logout</Nav.Link>
