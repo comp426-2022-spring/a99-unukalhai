@@ -9,7 +9,7 @@ export default function Navbar() {
         className="logo"
         alt="logo"
       />
-      <h1>landmarks</h1>
+      <h1>Mental Health Resources</h1>
     </nav>
   );
 }

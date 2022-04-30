@@ -6,7 +6,7 @@ export default function Card(props) {
   if (props.natural === true) {
     dateText = "NATURAL";
   } else {
-    dateText = `COMPLETED IN ${props.dateBuilt}`;
+    dateText = `${props.website}`;
   }
 
   return (
