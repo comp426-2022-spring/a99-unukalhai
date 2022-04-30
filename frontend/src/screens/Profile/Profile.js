@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header";
 import axios from "axios";
-import { Button, Nav, Modal, Container } from "react-bootstrap";
+import { Button, Nav, Modal, Container, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import "./Profile.css";
 
 const Profile = () => {
   let navigate = useNavigate();
@@ -22,11 +23,12 @@ const Profile = () => {
   const userInfo = () => {
     const jsonData = localStorage.getItem("userInfo");
     var data = JSON.parse(jsonData);
+    console.log(data);
     setName(data["name"]);
     setUsername(data["username"]);
     setEmail(data["email"]);
     setPassword(data["password"]);
-    setID(data["id"]);
+    setID(data["_id"]);
   };
 
   const deleteUser = async (e) => {
@@ -64,14 +66,25 @@ const Profile = () => {
       <Header />
 
       <Container>
-        <div>User Profile</div>
-        <p>{name}</p>
-        <p>{username}</p>
-        <p>{email}</p>
-        <Nav.Link href="/update-profile">
-          <Button>Update</Button>
-        </Nav.Link>
-        <Button onClick={handleShow}>Delete Account</Button>
+        <div className="user-header">User Profile</div>
+        <Card className="card-container" style={{ textAlign: "center" }}>
+          <Card.Body>
+            <Card.Title>
+              <p className="user-name">{name}</p>
+            </Card.Title>
+            <Card.Text className="user-info">
+              <strong>Username: </strong> {username}
+            </Card.Text>
+            <Card.Text className="user-info">
+              <strong>Email: </strong> {email}
+            </Card.Text>
+
+            <Nav.Link className="user-update" href="/update-profile">
+              <Button>Update</Button>
+              <Button onClick={handleShow}>Delete Account</Button>
+            </Nav.Link>
+          </Card.Body>
+        </Card>
 
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>

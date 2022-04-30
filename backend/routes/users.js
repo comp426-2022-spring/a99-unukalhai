@@ -90,8 +90,10 @@ router.post("/login", function (req, res) {
 // Update User Profile Information - Able to Update username password or email
 router.post("/update-userInfo", async (req, res) => {
   // Find user in database
+  console.log("enter api endpoint");
+  console.log("Request Body", req.body);
   const user = await User.findOne({ _id: req.body._id });
-
+  console.log("user", user);
   if (user) {
     user.username = req.body.username || user.username;
     user.email = req.body.email || user.email;
